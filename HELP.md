@@ -1,5 +1,10 @@
 # Getting Started
 
+### Docker database
+```shell
+docker run -d --name pg-emergencies -e POSTGRES_USER=student -e POSTGRES_PASSWORD=student -e POSTGRES_DB=emergencies -p 5430:5432 postgres:13
+```
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
