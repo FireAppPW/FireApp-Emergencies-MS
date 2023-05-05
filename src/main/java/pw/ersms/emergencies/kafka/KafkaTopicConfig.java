@@ -23,12 +23,6 @@ public class KafkaTopicConfig {
         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         return new KafkaAdmin(configs);
     }
-/*
-    @Bean
-    public NewTopic emergencies() {
-        return new NewTopic("emergencies", 1, (short) 1);
-    }*/
-
     @Bean
     public NewTopic newTopic() {
         return TopicBuilder.name("emergencies").partitions(1).replicas(1).build();

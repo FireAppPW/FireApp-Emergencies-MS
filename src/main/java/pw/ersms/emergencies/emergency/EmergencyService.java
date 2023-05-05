@@ -2,12 +2,11 @@ package pw.ersms.emergencies.emergency;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import pw.ersms.emergencies.classification.Classification;
 import pw.ersms.emergencies.classification.ClassificationRepository;
 
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +15,8 @@ import java.util.Optional;
 @AllArgsConstructor
 public class EmergencyService {
     private final EmergencyRepository emergencyRepository;
+
+    private final KafkaTemplate<String, Emergency> kafkaTemplate;
 
     private final ClassificationRepository classificationRepository;
 
@@ -41,7 +42,12 @@ public class EmergencyService {
         //set classification
         emergency.setClassification(classificationOptional.get());
 
-        return emergencyRepository.save(emergency);
+        Emergency emergencyNew = emergencyRepository.save(emergency);
+
+        //send to kafka
+        kafkaTemplate.send("emergencies", emergencyNew);
+
+        return emergencyNew;
     }
 
     public Emergency updateEmergency(Integer emergencyId, Emergency emergency) {

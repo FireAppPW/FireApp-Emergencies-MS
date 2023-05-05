@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "\"emergency\"")
 public class Emergency {
@@ -78,4 +80,25 @@ public class Emergency {
 
     @Column(name = "captain_full_name", length = Integer.MAX_VALUE)
     private String captainFullName;
+
+    @Override
+    public String toString() {
+        return "Emergency{" +
+                "id=" + id +
+                ", fireDepartmentId=" + fireDepartmentId +
+                ", fireDepartmentName='" + fireDepartmentName + '\'' +
+                ", classification=" + classification +
+                ", dangerousLevel=" + dangerousLevel +
+                ", authorId=" + authorId +
+                ", dateTimeCreated=" + dateTimeCreated +
+                ", dateTimeClosed=" + dateTimeClosed +
+                ", addressLine1='" + addressLine1 + '\'' +
+                ", addressLine2='" + addressLine2 + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", description='" + description + '\'' +
+                ", captainId=" + captainId +
+                ", captainFullName='" + captainFullName + '\'' +
+                '}';
+    }
 }
