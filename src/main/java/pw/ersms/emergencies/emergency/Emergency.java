@@ -2,9 +2,7 @@ package pw.ersms.emergencies.emergency;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Generated;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import pw.ersms.emergencies.classification.Classification;
 
 import java.time.Instant;
@@ -80,5 +78,4 @@ public class Emergency {
 
     @Column(name = "captain_full_name", length = Integer.MAX_VALUE)
     private String captainFullName;
-
 }

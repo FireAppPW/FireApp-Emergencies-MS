@@ -1,5 +1,22 @@
 # Getting Started
 
+### Kafka
+
+#### Start Zookeeper
+```shell
+.\bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+```
+
+#### Start Kafka
+```shell
+.\bin\windows\kafka-server-start.bat config\server.properties
+```
+
+#### Subscribe to topic
+```shell
+.\bin\windows\kafka-console-consumer.bat --topic emergencies --from-beginning --bootstrap-server localhost:9092
+```
+
 ### Docker database
 ```shell
 docker run -d --name pg-emergencies -e POSTGRES_USER=student -e POSTGRES_PASSWORD=student -e POSTGRES_DB=emergencies -p 5430:5432 postgres:13
