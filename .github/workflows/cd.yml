@@ -39,4 +39,4 @@ jobs:
             sudo docker pull giangh14cqt/fireapp-be-emergency:latest
             sudo docker stop fireapp-be-emergency
             sudo docker rm fireapp-be-emergency
-            sudo docker run -d --name fireapp-be-emergency --network host --env-file .department_env giangh14cqt/fireapp-be-emergency:latest
+            sudo docker run -d --name fireapp-be-emergency --network host --env-file .emergency_env giangh14cqt/fireapp-be-emergency:latest
