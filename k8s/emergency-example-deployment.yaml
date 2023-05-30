@@ -23,13 +23,13 @@ spec:
                   imagePullPolicy: Always
                   livenessProbe:
                       httpGet:
-                          port: 8081
+                          port: 8084
                           path: /actuator/health/liveness
                       initialDelaySeconds: 180
                       periodSeconds: 30
                   readinessProbe:
                       httpGet:
-                          port: 8081
+                          port: 8084
                           path: /actuator/health/readiness
                       initialDelaySeconds: 180
                       periodSeconds: 30
@@ -54,6 +54,6 @@ spec:
                       - name: DATASOURCE_USERNAME
                         value: DATASOURCE_USERNAME_ENV
                   ports:
-                      - containerPort: 8081
+                      - containerPort: 8084
             restartPolicy: Always
 status: {}
