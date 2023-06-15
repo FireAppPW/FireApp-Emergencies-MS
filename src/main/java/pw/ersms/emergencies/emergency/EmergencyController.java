@@ -1,5 +1,6 @@
 package pw.ersms.emergencies.emergency;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,12 +12,12 @@ import java.util.List;
 public class EmergencyController {
     private final EmergencyService emergencyService;
 
-    @GetMapping
-    public List<Emergency> getEmergency() {
-        return emergencyService.get();
+    @GetMapping(path = "/{departmentId}")
+    public List<Emergency> getEmergency(@PathVariable("departmentId") Integer departmentId) {
+        return emergencyService.get(departmentId);
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/{departmentId}/{id}")
     public Emergency getEmergencyById(@PathVariable("id") Integer id) {
         return emergencyService.getEmergencyById(id);
     }
@@ -26,7 +27,7 @@ public class EmergencyController {
         return emergencyService.create(emergency);
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping(path = "/{departmentId}/{id}")
     public Emergency updateEmergency(
             @PathVariable("id") Integer id,
             @RequestBody Emergency emergency) {
