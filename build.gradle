@@ -27,6 +27,7 @@ dependencies {
 	implementation 'org.springframework.kafka:spring-kafka'
 	implementation 'org.apache.kafka:kafka-streams'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.1'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -35,6 +36,8 @@ dependencies {
 	implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
 	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2'
 
+	// spring boot starter actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }
 
 tasks.named('test') {
