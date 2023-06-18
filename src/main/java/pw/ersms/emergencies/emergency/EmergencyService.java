@@ -19,6 +19,9 @@ public class EmergencyService {
 
     private final ClassificationRepository classificationRepository;
 
+    public List<Emergency> get() {
+        return emergencyRepository.findAll();
+    }
     public List<Emergency> get(Integer departmentId) {
         System.out.println("departmentId: " + departmentId);
         return emergencyRepository.findAll().stream()

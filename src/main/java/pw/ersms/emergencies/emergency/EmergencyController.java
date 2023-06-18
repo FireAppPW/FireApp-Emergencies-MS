@@ -12,6 +12,10 @@ import java.util.List;
 public class EmergencyController {
     private final EmergencyService emergencyService;
 
+    @GetMapping
+    public List<Emergency> getEmergency() {
+        return emergencyService.get();
+    }
     @GetMapping(path = "/{departmentId}")
     public List<Emergency> getEmergency(@PathVariable("departmentId") Integer departmentId) {
         return emergencyService.get(departmentId);
