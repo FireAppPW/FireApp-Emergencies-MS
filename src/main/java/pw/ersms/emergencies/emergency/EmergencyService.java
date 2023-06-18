@@ -22,6 +22,12 @@ public class EmergencyService {
     public List<Emergency> get() {
         return emergencyRepository.findAll();
     }
+    public List<Emergency> get(Integer departmentId) {
+        System.out.println("departmentId: " + departmentId);
+        return emergencyRepository.findAll().stream()
+                .filter(emergency -> emergency.getFireDepartmentId().equals(departmentId))
+                .collect(java.util.stream.Collectors.toList());
+    }
 
     public Emergency getEmergencyById(Integer emergencyId) {
         return emergencyRepository.findById(emergencyId)
