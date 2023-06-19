@@ -2,6 +2,7 @@ package pw.ersms.emergencies.emergency;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
