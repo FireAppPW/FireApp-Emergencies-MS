@@ -1,5 +1,6 @@
 package pw.ersms.emergencies.emergency;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("emergency")
+@SecurityRequirement(name = "Bearer Authentication")
 public class EmergencyController {
     private final EmergencyService emergencyService;
 
