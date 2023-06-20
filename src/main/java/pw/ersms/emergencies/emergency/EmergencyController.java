@@ -51,11 +51,8 @@ public class EmergencyController {
 
         if (role.equals("SysAdmin")) {
             return ResponseEntity.ok().body(emergencyService.get());
-        } else if (role.equals("FireAdmin")) {
+        } else  {
             return ResponseEntity.ok().body(emergencyService.get(departmentId));
-        } else {
-            //return unauthorized
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
 
